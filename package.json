@@ -1,5 +1,5 @@
 {
-  "name": "my-first-worker-ai-integration",
+  "name": "cloudflare-logistics-agent",
   "version": "0.0.0",
   "private": true,
   "type": "module",
