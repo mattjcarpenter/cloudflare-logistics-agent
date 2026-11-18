@@ -2,18 +2,34 @@
   "name": "my-first-worker-ai-integration",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "deploy": "wrangler deploy",
-    "dev": "wrangler dev",
-    "start": "wrangler dev",
+    "deploy": "vite build && wrangler deploy",
+    "dev": "vite dev",
+    "start": "vite dev",
     "test": "vitest",
     "cf-typegen": "wrangler types"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.66.0",
     "@cloudflare/vitest-plugin": "^1.4.3",
     "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
     "typescript": "^5.5.2",
+    "vite": "^8.3.5",
     "vitest": "~5.0.3",
     "wrangler": "^4.154.0"
+  },
+  "dependencies": {
+    "@ai-sdk/provider": "^4.0.34",
+    "@ai-sdk/react": "^4.0.163",
+    "@cloudflare/ai-chat": "^0.12.2",
+    "agents": "^0.31.0",
+    "ai": "^7.0.155",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "zod": "^4.6.7"
   }
 }

@@ -10,7 +10,24 @@
 	"observability": {
 		"enabled": true
 	},
-	"upload_source_maps": true
+	"upload_source_maps": true,
+	"ai": {
+		"binding": "AI"
+	},
+	"ai_search": [
+		{"binding": "POLICY_SEARCH", "instance_name": "stord-kb", "remote": true}
+	],
+	// Each conversation is one LogisticsAgent instance (a Durable Object)
+	"durable_objects": {
+		"bindings": [{ "name": "LogisticsAgent", "class_name": "LogisticsAgent" }]
+	},
+	// Required once per new class: AIChatAgent stores messages in the Durable Object's SQLite
+	"migrations": [{ "tag": "v1", "new_sqlite_classes": ["LogisticsAgent"] }],
+	// The built React page; agent routes hit the Worker before asset lookup
+	"assets": {
+		"not_found_handling": "single-page-application",
+		"run_worker_first": ["/agents/*"]
+	},
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
